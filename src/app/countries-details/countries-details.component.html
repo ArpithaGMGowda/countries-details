@@ -1,0 +1,54 @@
+<div class="countryDetail">
+  <div class="btnContainer">
+      <button class="btn btn-outline-secondary" (click)='onBack()'>
+          Back
+      </button>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left"
+          class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512">
+          <path fill="currentColor"
+              d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+          </path>
+      </svg>
+  </div>
+  <div class="container">
+      <img [src]="flag" alt="">
+      <div class="countryInfor">
+          <div class="mainDetails">
+              <div class="primaryCountryDetails">
+                  <h2>{{name}}</h2>
+                  <p>Native name: {{nativeName}}</p>
+                  <p>Population: {{population | number}}</p>
+                  <p>Region: {{region}}</p>
+                  <p>Sub region: {{subregion}}</p>
+                  <p>Capital: {{capital}}</p>
+              </div>
+          </div>
+          <div class="secondaryCountryDetails">
+              <p>Top Level dormain{{tld}}</p>
+              <div class="currency">
+                  Currencies :
+                  <span *ngFor="let myCurrent of resultCurrency">
+                      {{myCurrent}},
+                  </span>
+              </div>
+              <div class="langauges" [ngClass]="{'lightMode': message}">
+                  Languages:
+                  <span *ngFor="let lang of resultLang">
+                      {{lang}},
+                  </span>
+              </div>
+          </div>
+          <div class="borderDetails">
+              <h4 [ngClass]="{'lightMode': message}">Border</h4>
+              <div class="borders" (click)="changeCountry()">
+                  <button class="borderCty" *ngFor="let borderCountry of borderingCountries"
+                      [ngClass]="{'lightMode': message, 'lightModeShadow': message}">
+                      {{borderCountry}}
+                  </button>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
